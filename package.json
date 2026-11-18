@@ -1,0 +1,20 @@
+{
+  "name": "quickcheckout-2.0",
+  "version": "2.0.0",
+  "description": "QUICKCHECKOUT 2.0 - Next-Generation Smart Supermarket Self-Checkout Platform",
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "build:frontend": "cd frontend && npm run build",
+    "start:backend": "powershell -Command \".\\venv\\Scripts\\python backend/manage.py runserver 127.0.0.1:5676\""
+  },
+  "keywords": [
+    "self-checkout",
+    "retail-tech",
+    "barcode-scanner",
+    "django-rest-framework",
+    "mongodb",
+    "react"
+  ],
+  "author": "QuickCheckout Team",
+  "license": "MIT"
+}

@@ -1,0 +1,9 @@
+django>=6.1.0
+djangorestframework>=3.18.0
+django-cors-headers>=4.9.0
+pymongo>=4.20.0
+mongomock>=4.3.0
+pyjwt>=2.15.0
+python-dotenv>=1.2.0
+requests>=2.34.0
+gunicorn>=23.0.0

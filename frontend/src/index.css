@@ -1,0 +1,245 @@
+@import "tailwindcss";
+
+@theme {
+  /* User Custom Background UI Palette */
+  --color-alice_blue: #edf2fb;
+  --color-alice_blue-100: #122850;
+  --color-alice_blue-200: #234fa1;
+  --color-alice_blue-300: #4e7ed8;
+  --color-alice_blue-400: #9eb8ea;
+  --color-alice_blue-500: #edf2fb;
+  --color-alice_blue-600: #f2f5fc;
+  --color-alice_blue-700: #f5f8fd;
+  --color-alice_blue-800: #f8fafe;
+  --color-alice_blue-900: #fcfdfe;
+
+  --color-lavender: #e2eafc;
+  --color-lavender-100: #092057;
+  --color-lavender-200: #1241ae;
+  --color-lavender-300: #366cea;
+  --color-lavender-400: #8dabf3;
+  --color-lavender-500: #e2eafc;
+  --color-lavender-600: #e9effd;
+  --color-lavender-700: #eef3fd;
+  --color-lavender-800: #f4f7fe;
+  --color-lavender-900: #f9fbfe;
+
+  --color-lavender_alt: #d7e3fc;
+  --color-lavender_alt-100: #072057;
+  --color-lavender_alt-200: #0d40af;
+  --color-lavender_alt-300: #2b69ef;
+  --color-lavender_alt-400: #82a6f6;
+  --color-lavender_alt-500: #d7e3fc;
+  --color-lavender_alt-600: #e1eafd;
+  --color-lavender_alt-700: #e8effd;
+  --color-lavender_alt-800: #f0f4fe;
+  --color-lavender_alt-900: #f7fafe;
+
+  --color-periwinkle: #ccdbfd;
+  --color-periwinkle-100: #041d58;
+  --color-periwinkle-200: #073ab0;
+  --color-periwinkle-300: #1e5ff6;
+  --color-periwinkle-400: #769df9;
+  --color-periwinkle-500: #ccdbfd;
+  --color-periwinkle-600: #d8e3fd;
+  --color-periwinkle-700: #e2eafe;
+  --color-periwinkle-800: #ebf1fe;
+  --color-periwinkle-900: #f5f8ff;
+
+  --color-periwinkle_2: #c1d3fe;
+  --color-periwinkle_2-100: #011b58;
+  --color-periwinkle_2-200: #0337b1;
+  --color-periwinkle_2-300: #1258fb;
+  --color-periwinkle_2-400: #6a96fd;
+  --color-periwinkle_2-500: #c1d3fe;
+  --color-periwinkle_2-600: #cfddfe;
+  --color-periwinkle_2-700: #dbe6fe;
+  --color-periwinkle_2-800: #e7eeff;
+  --color-periwinkle_2-900: #f3f7ff;
+
+  --color-periwinkle_3: #b6ccfe;
+  --color-periwinkle_3-100: #011b55;
+  --color-periwinkle_3-200: #0335ab;
+  --color-periwinkle_3-300: #0952fb;
+  --color-periwinkle_3-400: #5e8efd;
+  --color-periwinkle_3-500: #b6ccfe;
+  --color-periwinkle_3-600: #c3d5fe;
+  --color-periwinkle_3-700: #d2dffe;
+  --color-periwinkle_3-800: #e1eaff;
+  --color-periwinkle_3-900: #f0f4ff;
+
+  --color-baby_blue_ice: #abc4ff;
+  --color-baby_blue_ice-100: #001a56;
+  --color-baby_blue_ice-200: #0033ab;
+  --color-baby_blue_ice-300: #024eff;
+  --color-baby_blue_ice-400: #588aff;
+  --color-baby_blue_ice-500: #abc4ff;
+  --color-baby_blue_ice-600: #bed1ff;
+  --color-baby_blue_ice-700: #ceddff;
+  --color-baby_blue_ice-800: #dee8ff;
+  --color-baby_blue_ice-900: #eff4ff;
+}
+
+@layer base {
+  :root {
+    /* Pure White Background UI */
+    --color-bg: #FFFFFF;
+    --color-bg-gradient: none;
+    --color-surface: #FFFFFF;
+    --color-surface-translucent: rgba(255, 255, 255, 0.95);
+    --color-light-blue: #F8FAFC;
+    --color-border: #E2E8F0;
+    --color-border-subtle: #F1F5F9;
+
+    --color-primary: #2563EB;
+    --color-secondary: #06B6D4;
+    --color-navy: #0F172A;
+    --color-success: #10B981;
+    --color-warning: #F59E0B;
+    --color-danger: #EF4444;
+    --color-muted: #64748B;
+  }
+
+  .dark {
+    --color-bg: #0B132B;
+    --color-bg-gradient: none;
+    --color-surface: #111C44;
+    --color-surface-translucent: rgba(17, 28, 68, 0.90);
+    --color-light-blue: #1C2B59;
+    --color-border: #1E293B;
+    --color-border-subtle: #16203B;
+    --color-navy: #F8FAFC;
+    --color-muted: #94A3B8;
+  }
+
+  body {
+    background-color: #FFFFFF !important;
+    background-image: none !important;
+    color: var(--color-navy);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF !important;
+  }
+}
+
+/* Background canvas class for seamless pure white background UI */
+.bg-qc-canvas {
+  background-color: #FFFFFF !important;
+  background-image: none !important;
+}
+
+/* Ensure page containers show pure white background */
+.min-h-screen.bg-slate-50,
+.min-h-screen.bg-slate-100,
+.min-h-screen.bg-qc-canvas {
+  background-color: #FFFFFF !important;
+  background-image: none !important;
+}
+
+.dark .min-h-screen.bg-slate-50,
+.dark .min-h-screen.bg-slate-100,
+.dark .min-h-screen.bg-slate-950 {
+  background-color: transparent !important;
+}
+
+/* Camera Reader Viewport Styling Fix */
+#reader {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  inset: 0 !important;
+  border: none !important;
+  background: #000000 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+#reader video {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+#reader canvas {
+  display: none !important;
+}
+
+#reader img {
+  display: none !important;
+}
+
+#reader__scan_region {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  border: none !important;
+}
+
+#reader__scan_region video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+#reader__dashboard_section_csr button,
+#reader__dashboard_section_swaplink,
+#reader__status_span,
+#reader__header_message {
+  display: none !important;
+}
+
+/* Custom laser scan bar animation */
+@keyframes laserSweep {
+  0% {
+    top: 5%;
+    opacity: 0.9;
+  }
+  50% {
+    top: 92%;
+    opacity: 1;
+  }
+  100% {
+    top: 5%;
+    opacity: 0.9;
+  }
+}
+
+.animate-laser {
+  animation: laserSweep 2s ease-in-out infinite;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
