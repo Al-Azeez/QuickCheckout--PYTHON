@@ -17,7 +17,11 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'qc2-super-secret-key-production-rea
 
 DEBUG = os.getenv('DJANGO_DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['*']
+allowed_hosts_raw = os.getenv('ALLOWED_HOSTS', '*')
+if allowed_hosts_raw == '*':
+    ALLOWED_HOSTS = ['*']
+else:
+    ALLOWED_HOSTS = [h.strip() for h in allowed_hosts_raw.split(',') if h.strip()]
 
 # Application definition
 INSTALLED_APPS = [
@@ -90,14 +94,38 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CORS configuration
 from corsheaders.defaults import default_headers
 
-CORS_ALLOW_ALL_ORIGINS = True
+# Set to True by default or if 'True' in .env (allows any Vercel domain or local dev)
+CORS_ALLOW_ALL_ORIGINS = os.getenv('CORS_ALLOW_ALL_ORIGINS', 'True').lower() in ('true', '1', 'yes', 't')
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3454",
-    "http://127.0.0.1:3454",
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
+
+# Specific allowed origins from .env (comma-separated, e.g. https://your-site.vercel.app,http://localhost:3454)
+cors_origins_raw = os.getenv('CORS_ALLOWED_ORIGINS', '')
+if cors_origins_raw:
+    CORS_ALLOWED_ORIGINS = [origin.strip() for origin in cors_origins_raw.split(',') if origin.strip()]
+else:
+    CORS_ALLOWED_ORIGINS = [
+        "http://localhost:3454",
+        "http://127.0.0.1:3454",
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ]
+
+# Regex pattern to automatically permit all Vercel domains (e.g., your-app.vercel.app & preview branches)
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https:\/\/.*\.vercel\.app$",
 ]
+
+# CSRF trusted origins for secure POST/PUT/DELETE requests across domains
+csrf_origins_raw = os.getenv('CSRF_TRUSTED_ORIGINS', '')
+if csrf_origins_raw:
+    CSRF_TRUSTED_ORIGINS = [origin.strip() for origin in csrf_origins_raw.split(',') if origin.strip()]
+else:
+    CSRF_TRUSTED_ORIGINS = [
+        "http://localhost:3454",
+        "http://127.0.0.1:3454",
+        "https://*.vercel.app",
+        "https://*.onrender.com",
+    ]
 
 CORS_ALLOW_HEADERS = list(default_headers) + [
     'x-session-id',
